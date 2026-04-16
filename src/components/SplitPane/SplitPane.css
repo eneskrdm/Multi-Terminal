@@ -1,0 +1,121 @@
+.mt-split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mt-split--horizontal {
+  flex-direction: row;
+}
+
+.mt-split--vertical {
+  flex-direction: column;
+}
+
+.mt-split__child {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-split__divider {
+  position: relative;
+  flex: 0 0 auto;
+  background: transparent;
+  transition: background-color var(--mt-transition-fast, 120ms) ease;
+  touch-action: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.mt-split--horizontal > .mt-split__divider {
+  width: 4px;
+  cursor: col-resize;
+}
+
+.mt-split--vertical > .mt-split__divider {
+  height: 4px;
+  cursor: row-resize;
+}
+
+.mt-split__divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background-color var(--mt-transition-fast, 120ms) ease;
+}
+
+.mt-split--horizontal > .mt-split__divider::before {
+  inset: 0 -3px;
+}
+
+.mt-split--vertical > .mt-split__divider::before {
+  inset: -3px 0;
+}
+
+.mt-split__divider:hover::before,
+.mt-split__divider--dragging::before {
+  background: color-mix(in srgb, var(--mt-accent) 40%, transparent);
+}
+
+.mt-split__divider:focus-visible {
+  outline: none;
+}
+
+.mt-split__divider:focus-visible::before {
+  background: color-mix(in srgb, var(--mt-accent) 55%, transparent);
+}
+
+.mt-pane {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mt-pane__body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.mt-pane--focused::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  outline: 1px solid var(--mt-accent);
+  outline-offset: -1px;
+  border-radius: 2px;
+  z-index: 5;
+}
+
+.mt-split-tree {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}
+
+.mt-split-tree__missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--mt-text-muted);
+  font-family: var(--mt-font-family);
+  font-size: 13px;
+}

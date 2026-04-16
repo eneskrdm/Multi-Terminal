@@ -1,0 +1,88 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "./scrollbar.css";
+@import "./animations.css";
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--mt-bg-base);
+  color: var(--mt-text-primary);
+  font-family: var(--mt-ui-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--mt-accent);
+  outline-offset: 2px;
+  border-radius: var(--mt-radius-sm);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--mt-accent) 40%, transparent);
+  color: var(--mt-text-primary);
+}
+
+/* Allow text selection inside terminal + form controls */
+input,
+textarea,
+[contenteditable="true"],
+.xterm,
+.xterm-selection-layer,
+.mt-selectable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Prevent iframes from interfering with drag handles */
+iframe {
+  pointer-events: none;
+}
+
+/* Global link color */
+a {
+  color: var(--mt-accent);
+  transition: color var(--mt-transition-fast);
+}
+
+a:hover {
+  color: var(--mt-accent-hover);
+}
+
+/* Utility: visually hidden (for a11y labels) */
+.mt-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Prevent drag on ui chrome */
+.mt-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+.mt-drag {
+  -webkit-app-region: drag;
+}

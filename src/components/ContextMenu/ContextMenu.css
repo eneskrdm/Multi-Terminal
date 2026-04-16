@@ -1,0 +1,113 @@
+.mt-ctx {
+  position: fixed;
+  z-index: 9000;
+  min-width: 200px;
+  max-width: 360px;
+  padding: 4px;
+  background: var(--mt-bg-overlay, var(--mt-bg-elevated));
+  color: var(--mt-text-primary);
+  border: 1px solid var(--mt-border-default);
+  border-radius: var(--mt-radius-md, 8px);
+  box-shadow: var(--mt-shadow-lg, 0 10px 28px rgba(0, 0, 0, 0.4));
+  font-family: var(--mt-font-family, inherit);
+  font-size: 12.5px;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  opacity: 0;
+  transform: translateY(-2px) scale(0.98);
+  transform-origin: top left;
+  transition: opacity var(--mt-transition-fast, 120ms) ease,
+    transform var(--mt-transition-fast, 120ms) ease;
+  pointer-events: none;
+}
+
+.mt-ctx--ready {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mt-ctx__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 28px;
+  padding: 0 10px 0 8px;
+  margin: 0;
+  background: transparent;
+  color: var(--mt-text-primary);
+  border: none;
+  border-radius: var(--mt-radius-sm, 4px);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  outline: none;
+  transition: background var(--mt-transition-fast, 120ms) ease,
+    color var(--mt-transition-fast, 120ms) ease;
+}
+
+.mt-ctx__item:hover:not(.mt-ctx__item--disabled),
+.mt-ctx__item--active:not(.mt-ctx__item--disabled) {
+  background: var(--mt-bg-hover);
+  color: var(--mt-text-primary);
+}
+
+.mt-ctx__item:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--mt-accent);
+}
+
+.mt-ctx__item--disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.mt-ctx__icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  color: var(--mt-text-secondary);
+}
+
+.mt-ctx__icon {
+  width: 14px;
+  height: 14px;
+}
+
+.mt-ctx__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mt-ctx__accel {
+  flex: 0 0 auto;
+  padding-left: 18px;
+  color: var(--mt-text-muted);
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.mt-ctx__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin-left: 8px;
+  color: var(--mt-text-muted);
+}
+
+.mt-ctx__separator {
+  height: 1px;
+  margin: 4px 4px;
+  background: var(--mt-border-subtle);
+  opacity: 0.75;
+}

@@ -1,0 +1,127 @@
+.mt-switch {
+  --mt-switch-track-w: 34px;
+  --mt-switch-track-h: 20px;
+  --mt-switch-thumb: 14px;
+  --mt-switch-pad: 3px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mt-switch[data-size="sm"] {
+  --mt-switch-track-w: 28px;
+  --mt-switch-track-h: 16px;
+  --mt-switch-thumb: 10px;
+  --mt-switch-pad: 3px;
+}
+
+.mt-switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mt-switch:focus-visible {
+  outline: none;
+}
+
+.mt-switch:focus-visible .mt-switch__track {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mt-accent) 28%, transparent);
+}
+
+.mt-switch__track {
+  position: relative;
+  display: inline-block;
+  width: var(--mt-switch-track-w);
+  height: var(--mt-switch-track-h);
+  background-color: var(--mt-bg-overlay);
+  border: 1px solid var(--mt-border-default);
+  border-radius: 9999px;
+  transition:
+    background-color var(--mt-transition-fast),
+    border-color var(--mt-transition-fast),
+    box-shadow var(--mt-transition-fast);
+}
+
+.mt-switch:hover:not(:disabled) .mt-switch__track {
+  border-color: var(--mt-border-strong);
+}
+
+.mt-switch[data-checked] .mt-switch__track {
+  background-color: var(--mt-accent);
+  border-color: var(--mt-accent);
+}
+
+.mt-switch[data-checked]:hover:not(:disabled) .mt-switch__track {
+  background-color: var(--mt-accent-hover);
+  border-color: var(--mt-accent-hover);
+}
+
+.mt-switch__thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--mt-switch-pad);
+  width: var(--mt-switch-thumb);
+  height: var(--mt-switch-thumb);
+  background-color: var(--mt-text-primary);
+  border-radius: 50%;
+  box-shadow: var(--mt-shadow-sm);
+  transform: translateY(-50%);
+  transition:
+    left var(--mt-transition-normal),
+    background-color var(--mt-transition-fast),
+    width var(--mt-transition-fast);
+}
+
+.mt-switch[data-checked] .mt-switch__thumb {
+  left: calc(100% - var(--mt-switch-thumb) - var(--mt-switch-pad));
+  background-color: var(--mt-accent-contrast);
+}
+
+.mt-switch:active:not(:disabled) .mt-switch__thumb {
+  width: calc(var(--mt-switch-thumb) + 3px);
+}
+
+/* Field wrapper (label + description next to switch) */
+.mt-switch-field {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--mt-ui-font-family);
+  color: var(--mt-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.mt-switch-field[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.mt-switch-field > .mt-switch {
+  margin-top: 1px;
+}
+
+.mt-switch-field__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mt-switch-field__label {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--mt-text-primary);
+}
+
+.mt-switch-field__description {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--mt-text-secondary);
+}

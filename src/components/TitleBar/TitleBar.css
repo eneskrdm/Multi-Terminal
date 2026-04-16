@@ -1,0 +1,139 @@
+.mt-titlebar {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: var(--mt-titlebar-height, 36px);
+  background: var(--mt-titlebar-bg, var(--mt-bg-surface));
+  color: var(--mt-titlebar-fg, var(--mt-text-secondary));
+  border-bottom: 1px solid var(--mt-border-subtle);
+  user-select: none;
+  -webkit-user-select: none;
+  font-size: 12px;
+  font-family: var(--mt-font-family, inherit);
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.mt-titlebar__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 0 10px 0 12px;
+  min-width: 0;
+}
+
+.mt-titlebar__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--mt-accent) 85%, transparent),
+    color-mix(in srgb, var(--mt-accent) 55%, var(--mt-bg-elevated))
+  );
+  color: var(--mt-accent-contrast, #ffffff);
+  border-radius: var(--mt-radius-sm, 4px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 0 1px
+    color-mix(in srgb, var(--mt-accent) 40%, transparent);
+  pointer-events: none;
+}
+
+.mt-titlebar__product {
+  flex: 0 0 auto;
+  color: var(--mt-titlebar-fg, var(--mt-text-secondary));
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+.mt-titlebar__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0 12px;
+  overflow: hidden;
+}
+
+.mt-titlebar__crumb {
+  color: var(--mt-text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  pointer-events: none;
+  letter-spacing: 0.1px;
+}
+
+.mt-titlebar__right {
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* Responsively hide the product name when the window is narrow */
+@media (max-width: 640px) {
+  .mt-titlebar__product {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Window controls
+ * ------------------------------------------------------------------------ */
+.mt-wincontrols {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.mt-wincontrols__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  color: var(--mt-titlebar-fg, var(--mt-text-secondary));
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background var(--mt-transition-fast, 120ms) ease,
+    color var(--mt-transition-fast, 120ms) ease;
+}
+
+.mt-wincontrols__btn:hover {
+  background: var(--mt-bg-hover);
+  color: var(--mt-text-primary);
+}
+
+.mt-wincontrols__btn:active {
+  background: var(--mt-bg-active);
+}
+
+.mt-wincontrols__btn--close:hover {
+  background: #e81123;
+  color: #ffffff;
+}
+
+.mt-wincontrols__btn--close:active {
+  background: #c50f1f;
+  color: #ffffff;
+}
+
+.mt-wincontrols__btn:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--mt-accent);
+}

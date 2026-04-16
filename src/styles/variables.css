@@ -1,0 +1,67 @@
+:root {
+  /* Backgrounds — layered, deepest to highest elevation */
+  --mt-bg-base: #1a1b26;
+  --mt-bg-surface: #1f2335;
+  --mt-bg-elevated: #24283b;
+  --mt-bg-overlay: #2c3149;
+  --mt-bg-hover: rgba(255, 255, 255, 0.04);
+  --mt-bg-active: rgba(255, 255, 255, 0.08);
+
+  /* Borders */
+  --mt-border-subtle: rgba(255, 255, 255, 0.06);
+  --mt-border-default: rgba(255, 255, 255, 0.1);
+  --mt-border-strong: rgba(255, 255, 255, 0.2);
+
+  /* Text */
+  --mt-text-primary: #c0caf5;
+  --mt-text-secondary: #a9b1d6;
+  --mt-text-muted: #565f89;
+  --mt-text-inverted: #1a1b26;
+
+  /* Accent */
+  --mt-accent: #7aa2f7;
+  --mt-accent-hover: #89b4fa;
+  --mt-accent-muted: #3d59a1;
+  --mt-accent-contrast: #ffffff;
+
+  /* Semantic */
+  --mt-success: #9ece6a;
+  --mt-warning: #e0af68;
+  --mt-danger: #f7768e;
+  --mt-info: #7dcfff;
+
+  /* Titlebar / tabs / chrome */
+  --mt-titlebar-bg: #16161e;
+  --mt-titlebar-fg: #a9b1d6;
+  --mt-tab-active-bg: #1a1b26;
+  --mt-tab-inactive-bg: #16161e;
+  --mt-tab-hover-bg: #1f2335;
+  --mt-tab-border: rgba(255, 255, 255, 0.06);
+
+  /* Radii */
+  --mt-radius-sm: 4px;
+  --mt-radius-md: 6px;
+  --mt-radius-lg: 10px;
+
+  /* Shadows */
+  --mt-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --mt-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --mt-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --mt-transition-fast: 120ms ease;
+  --mt-transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography — terminal */
+  --mt-font-family: "Cascadia Code", "Fira Code", "JetBrains Mono", "Consolas", monospace;
+  --mt-font-size: 14px;
+  --mt-line-height: 1.2;
+
+  /* Typography — UI chrome */
+  --mt-ui-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Heights */
+  --mt-titlebar-height: 36px;
+  --mt-tabbar-height: 40px;
+  --mt-statusbar-height: 24px;
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Multi-Terminal",
+  "version": "1.0.0",
+  "identifier": "dev.eneskrdm.multiterminal",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "MultiTerminal",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 720,
+        "minHeight": 420,
+        "decorations": false,
+        "transparent": false,
+        "shadow": true,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true,
+        "visible": true,
+        "dragDropEnabled": false,
+        "theme": "Dark"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "Enes Karademir",
+    "copyright": "Copyright (c) 2026 Enes Karademir",
+    "shortDescription": "Multi-terminal for Windows, macOS, and Linux",
+    "longDescription": "Terminal app with tabs, tmux-style splits, themes, a command palette, and customizable keybindings.",
+    "category": "DeveloperTool",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

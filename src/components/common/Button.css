@@ -1,0 +1,193 @@
+.mt-button {
+  --mt-btn-bg: var(--mt-bg-elevated);
+  --mt-btn-bg-hover: var(--mt-bg-overlay);
+  --mt-btn-bg-active: var(--mt-bg-overlay);
+  --mt-btn-fg: var(--mt-text-primary);
+  --mt-btn-border: var(--mt-border-default);
+  --mt-btn-border-hover: var(--mt-border-strong);
+  --mt-btn-ring: var(--mt-accent);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  border-radius: var(--mt-radius-md);
+  background-color: var(--mt-btn-bg);
+  color: var(--mt-btn-fg);
+  border: 1px solid var(--mt-btn-border);
+  font-family: var(--mt-ui-font-family);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition:
+    background-color var(--mt-transition-fast),
+    border-color var(--mt-transition-fast),
+    color var(--mt-transition-fast),
+    transform var(--mt-transition-fast),
+    box-shadow var(--mt-transition-fast);
+  box-shadow: var(--mt-shadow-sm);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+
+.mt-button:hover:not(:disabled) {
+  background-color: var(--mt-btn-bg-hover);
+  border-color: var(--mt-btn-border-hover);
+}
+
+.mt-button:active:not(:disabled) {
+  background-color: var(--mt-btn-bg-active);
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.mt-button:focus-visible {
+  outline: 2px solid var(--mt-btn-ring);
+  outline-offset: 2px;
+}
+
+.mt-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.mt-button--full-width {
+  width: 100%;
+}
+
+/* Sizes */
+.mt-button[data-size="sm"] {
+  height: 26px;
+  padding: 0 10px;
+  font-size: 12px;
+  gap: 6px;
+  border-radius: var(--mt-radius-sm);
+}
+
+.mt-button[data-size="md"] {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.mt-button[data-size="lg"] {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
+  border-radius: var(--mt-radius-lg);
+}
+
+/* Primary */
+.mt-button[data-variant="primary"] {
+  --mt-btn-bg: var(--mt-accent);
+  --mt-btn-bg-hover: var(--mt-accent-hover);
+  --mt-btn-bg-active: var(--mt-accent-hover);
+  --mt-btn-fg: var(--mt-accent-contrast);
+  --mt-btn-border: transparent;
+  --mt-btn-border-hover: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0) 55%
+  );
+}
+
+.mt-button[data-variant="primary"]:hover:not(:disabled) {
+  box-shadow: 0 0 0 1px var(--mt-accent-hover), var(--mt-shadow-sm);
+}
+
+/* Secondary (default) — already styled above */
+
+/* Ghost */
+.mt-button[data-variant="ghost"] {
+  --mt-btn-bg: transparent;
+  --mt-btn-bg-hover: var(--mt-bg-hover);
+  --mt-btn-bg-active: var(--mt-bg-active);
+  --mt-btn-border: transparent;
+  --mt-btn-border-hover: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.mt-button[data-variant="ghost"]:active:not(:disabled) {
+  transform: none;
+}
+
+/* Danger */
+.mt-button[data-variant="danger"] {
+  --mt-btn-bg: var(--mt-danger);
+  --mt-btn-bg-hover: color-mix(in srgb, var(--mt-danger) 85%, white);
+  --mt-btn-bg-active: color-mix(in srgb, var(--mt-danger) 80%, black);
+  --mt-btn-fg: var(--mt-accent-contrast);
+  --mt-btn-border: transparent;
+  --mt-btn-border-hover: transparent;
+  --mt-btn-ring: var(--mt-danger);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0) 55%
+  );
+}
+
+/* Loading */
+.mt-button[data-loading] {
+  cursor: progress;
+}
+
+.mt-button[data-loading] .mt-button__label {
+  opacity: 0.7;
+}
+
+/* Icon slots */
+.mt-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mt-button__icon > svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.mt-button[data-size="sm"] .mt-button__icon {
+  font-size: 14px;
+}
+
+.mt-button[data-size="md"] .mt-button__icon {
+  font-size: 15px;
+}
+
+.mt-button[data-size="lg"] .mt-button__icon {
+  font-size: 16px;
+}
+
+.mt-button__label {
+  display: inline-block;
+  min-width: 0;
+}
+
+/* Spinner */
+.mt-button__spinner {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: mt-spin 700ms linear infinite;
+  flex-shrink: 0;
+}
+
+.mt-button[data-size="sm"] .mt-button__spinner {
+  font-size: 12px;
+  border-width: 1.5px;
+}

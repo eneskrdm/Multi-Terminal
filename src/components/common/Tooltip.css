@@ -1,0 +1,36 @@
+.mt-tooltip {
+  position: fixed;
+  z-index: 1100;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background-color: var(--mt-bg-overlay);
+  color: var(--mt-text-primary);
+  border: 1px solid var(--mt-border-default);
+  border-radius: var(--mt-radius-sm);
+  box-shadow: var(--mt-shadow-md);
+  font-family: var(--mt-ui-font-family);
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  max-width: 320px;
+  transform-origin: center;
+}
+
+.mt-tooltip[data-side="top"] {
+  transform-origin: center bottom;
+}
+
+.mt-tooltip[data-side="bottom"] {
+  transform-origin: center top;
+}
+
+.mt-tooltip[data-side="left"] {
+  transform-origin: right center;
+}
+
+.mt-tooltip[data-side="right"] {
+  transform-origin: left center;
+}
